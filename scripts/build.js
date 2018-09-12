@@ -55,7 +55,7 @@ function makeBundleAttributes(bundleType){
             atrs.sourceMap = false;
             atrs.plugins.push(uglify());
         case Bundles.UMD_DEV:
-            atrs.path = './build/packages/';
+            atrs.path = './lib/';
             atrs.format = 'umd';
             break;
         case Bundles.IIFE_PROD:
@@ -139,7 +139,7 @@ function runTasks($tasks){
 function createNodeBuild(){
     return (res, rej)=>{
         let count = 0;
-        let bat = exec('NODE_ENV=production babel ./src/lib --out-dir ./build/packages --copy-files', { stdio: [0, 1, 2] }, (error, stdout, stderr) => {
+        let bat = exec('NODE_ENV=production babel ./src/lib --out-dir ./lib --copy-files', { stdio: [0, 1, 2] }, (error, stdout, stderr) => {
               if (error) {
                 rej(error);
                 return;
