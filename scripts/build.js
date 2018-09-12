@@ -77,7 +77,7 @@ function makeConfig(bundleType){
       entry: 'src/lib/index.js',
       plugins: [
         less({
-          output: atrs.path + 'react-weui.css'
+          output: atrs.path + 'seedsui-react.css'
         }),
         cjs({
           include: 'node_modules/**',
@@ -176,8 +176,8 @@ function createBundle(bundleType){
         .then( bundle => {
             CLI.section('Writing Bundle to file');
             return bundle.write({
-              moduleName: 'WeUI',
-              dest: atrs.path + (atrs.env === 'production' ? 'react-weui.min.js' : 'react-weui.js'),
+              moduleName: 'SeedsUI',
+              dest: atrs.path + (atrs.env === 'production' ? 'seedsui-react.min.js' : 'seedsui-react.js'),
               format: atrs.format,
               sourceMap: atrs.sourceMap
             });
